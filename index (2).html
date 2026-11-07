@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#100d18"><title>اکانت فروشی | بازار اکانت بازی</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#100d18;color:#fff;font-family:tahoma,Arial;line-height:1.8}
+header{background:#1d142a;padding:22px;text-align:center;border-bottom:2px solid #a34cff}h1,h2{color:#c18aff;margin-top:0}
+nav{padding:13px;text-align:center;background:#171020;position:sticky;top:0;z-index:5}nav a{color:white;margin:8px;text-decoration:none}
+main{max-width:1000px;margin:auto;padding:16px}.hero{background:linear-gradient(120deg,#54218b,#191323);padding:28px;border-radius:18px;text-align:center}
+button,.btn{background:#963eff;color:white;border:0;border-radius:9px;padding:11px 17px;font-weight:bold;cursor:pointer;font-family:inherit;text-decoration:none;display:inline-block}
+button.secondary{background:#40304f}button.danger{background:#a72d48}
+.games,.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+.game,.product,.form{background:#21182e;padding:16px;border:1px solid #49345f;border-radius:14px}.game{text-align:center}
+.price{color:#65e9a4;font-weight:bold}.meta{font-size:13px;color:#b9aec7}
+input,textarea,select{width:100%;padding:12px;margin:6px 0 12px;background:#120e19;border:1px solid #59416e;border-radius:8px;color:white;font-family:inherit}
+textarea{min-height:95px}label{font-size:14px}.form{max-width:650px}.section{margin:28px 0}
+.notice{padding:12px;border-radius:9px;background:#30213e;margin:10px 0;font-size:13px}.empty{color:#b9aec7;text-align:center;padding:22px}
+footer{text-align:center;padding:25px;color:#aaa;margin-top:35px}.hidden{display:none!important}.actions{display:flex;gap:8px;flex-wrap:wrap}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}@media(max-width:520px){.row{grid-template-columns:1fr}nav a{margin:5px;font-size:12px}}
+</style></head>
+<body>
+<header><h1>🎮 اکانت فروشی</h1><p>بازار خرید و فروش اکانت بازی</p></header>
+<nav><a href="#games">بازی‌ها</a><a href="#products">آگهی‌ها</a><a href="#sell">ثبت آگهی</a><a href="#account">ورود</a><a href="#admin">مدیریت</a></nav>
+<main>
+<section class="hero"><h2>اکانت مورد علاقه‌ات رو پیدا کن!</h2><p>آگهی‌های بازی‌های محبوب را ببین و مستقیم با فروشنده هماهنگ کن.</p><a class="btn" href="#products">مشاهده آگهی‌ها</a></section>
+<section id="games" class="section"><h2>دسته‌بندی بازی‌ها</h2><div class="games">
+<div class="game">🔥 فری فایر</div><div class="game">🎯 پابجی موبایل</div><div class="game">🎮 کالاف دیوتی</div><div class="game">⚔️ کلش آف کلنز</div><div class="game">⚽ eFootball</div></div></section>
+<section id="products" class="section"><h2>آگهی‌های فروش</h2><div class="notice">درصد بالاتر اول نمایش داده می‌شود؛ در درصد مساوی، آگهی جدیدتر بالاتر است.</div><div id="listings" class="products"><div class="empty">در حال دریافت آگهی‌ها...</div></div></section>
+<section id="account" class="section"><h2>حساب کاربری</h2><div class="form"><p class="meta">برای ثبت آگهی باید وارد شوی.</p>
+<label>ایمیل</label><input id="email" type="email" autocomplete="email" placeholder="ایمیل">
+<label>رمز عبور</label><input id="password" type="password" autocomplete="current-password" placeholder="رمز عبور">
+<div class="actions"><button id="signupBtn">ساخت حساب</button><button id="loginBtn" class="secondary">ورود</button><button id="logoutBtn" class="secondary hidden">خروج</button></div><p id="authMessage" class="meta"></p><p id="userState" class="meta">وارد نشده‌ای.</p></div></section>
+<section id="sell" class="section"><h2>ثبت آگهی فروش</h2><div class="form">
+<div class="notice">آگهی پس از ثبت برای تأیید مدیر ارسال می‌شود.</div>
+<label>عنوان آگهی</label><input id="title" maxlength="90" placeholder="مثلاً اکانت فول فری فایر">
+<label>بازی</label><select id="gameSelect"><option>فری فایر</option><option>پابجی موبایل</option><option>کالاف دیوتی</option><option>کلش آف کلنز</option><option>eFootball</option></select>
+<label>قیمت به تومان</label><input id="price" type="number" min="1" placeholder="قیمت">
+<label>توضیحات</label><textarea id="description" maxlength="1500" placeholder="جزئیات اکانت"></textarea>
+<label>درصد جایگاه (۱ تا ۵۰)</label><select id="commission"><option value="1">۱٪ - پایین‌ترین جایگاه</option><option value="2">۲٪</option><option value="3">۳٪</option><option value="4">۴٪</option><option value="5">۵٪</option><option value="10">۱۰٪</option><option value="15">۱۵٪</option><option value="20">۲۰٪</option><option value="25">۲۵٪</option><option value="30">۳۰٪</option><option value="35">۳۵٪</option><option value="40">۴۰٪</option><option value="45">۴۵٪</option><option value="50">۵۰٪ - بالاترین جایگاه</option></select>
+<label>روش ارتباطی</label><select id="contactType"><option value="">نمایش داده نشود</option><option>تلگرام</option><option>روبیکا</option><option>واتساپ</option></select>
+<label>شناسه یا شماره تماس (اختیاری)</label><input id="contactValue" maxlength="100" placeholder="شناسه تماس">
+<label><input id="contactConsent" type="checkbox" style="width:auto"> اجازه نمایش عمومی راه ارتباطی را می‌دهم.</label>
+<button id="submitListing">ارسال آگهی برای بررسی</button><p id="listingMessage" class="meta"></p></div></section>
+<section id="admin" class="section"><h2>پنل مدیریت</h2><div class="form"><div class="notice">فقط حساب‌های ثبت‌شده در جدول admin_users دسترسی مدیریت دارند.</div><button id="refreshAdmin" class="secondary">بررسی دسترسی و تازه‌سازی</button><p id="adminMessage" class="meta">برای مدیریت وارد حساب مدیر شو.</p><div id="adminListings"></div></div></section>
+</main><footer>© اکانت فروشی | خرید و فروش اکانت بازی</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+/* فقط Project URL و کلید عمومی Publishable/anon را جایگزین کن؛ Secret/service_role ممنوع است. */
+const SUPABASE_URL="YOUR_SUPABASE_PROJECT_URL";
+const SUPABASE_ANON_KEY="YOUR_SUPABASE_PUBLISHABLE_OR_ANON_KEY";
+let db=null,user=null;const $=id=>document.getElementById(id);
+const fa=n=>Number(n).toLocaleString('fa-IR');
+const safe=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function msg(id,s){$(id).textContent=s}
+function ready(){return SUPABASE_URL.startsWith('https://')&&!SUPABASE_URL.includes('YOUR_')&&SUPABASE_ANON_KEY&&!SUPABASE_ANON_KEY.includes('YOUR_')}
+function authUI(){$('logoutBtn').classList.toggle('hidden',!user);$('userState').textContent=user?'وارد شده‌ای: '+user.email:'وارد نشده‌ای.'}
+async function init(){
+ if(!ready()){msg('authMessage','اتصال Supabase هنوز در کد تنظیم نشده است.');msg('listingMessage','پس از وارد کردن URL و کلید عمومی، سایت به دیتابیس وصل می‌شود.');$('listings').innerHTML='<div class="empty">اتصال دیتابیس هنوز تنظیم نشده است.</div>';return}
+ db=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
+ const {data:{session}}=await db.auth.getSession();user=session?.user||null;authUI();await loadListings();
+ db.auth.onAuthStateChange((_e,s)=>{user=s?.user||null;authUI()});
+}
+async function signup(){if(!db)return msg('authMessage','ابتدا اتصال Supabase را تنظیم کن.');let email=$('email').value.trim(),password=$('password').value;if(!email||password.length<8)return msg('authMessage','ایمیل و رمز حداقل ۸ کاراکتری وارد کن.');let {error}=await db.auth.signUp({email,password});msg('authMessage',error?error.message:'ثبت‌نام انجام شد؛ اگر تأیید ایمیل فعال است، ایمیلت را بررسی کن.')}
+async function login(){if(!db)return msg('authMessage','ابتدا اتصال Supabase را تنظیم کن.');let {data,error}=await db.auth.signInWithPassword({email:$('email').value.trim(),password:$('password').value});msg('authMessage',error?error.message:'ورود موفق بود.');if(!error){user=data.user;authUI()}}
+async function logout(){if(!db)return;let {error}=await db.auth.signOut();msg('authMessage',error?'خروج ناموفق بود.':'از حساب خارج شدی.');user=null;authUI();$('adminListings').innerHTML=''}
+async function loadListings(){
+ let {data,error}=await db.from('listings').select('id,title,game,price,description,commission_rate,created_at,contact_type,contact_value,contact_public').eq('status','approved').order('commission_rate',{ascending:false}).order('created_at',{ascending:false});
+ if(error){$('listings').innerHTML='<div class="empty">دریافت آگهی‌ها ناموفق بود؛ policyهای دیتابیس باید بررسی شوند.</div>';return}
+ if(!data.length){$('listings').innerHTML='<div class="empty">هنوز آگهی تأییدشده‌ای وجود ندارد.</div>';return}
+ $('listings').innerHTML=data.map(x=>`<article class="product"><h3>${safe(x.title)}</h3><p class="meta">${safe(x.game)} · جایگاه ${fa(x.commission_rate)}٪</p><p>${safe(x.description)}</p><p class="price">${fa(x.price)} تومان</p>${x.contact_public&&x.contact_type&&x.contact_value?`<p class="meta">ارتباط: ${safe(x.contact_type)} — ${safe(x.contact_value)}</p>`:''}</article>`).join('');
+}
+async function submitListing(){
+ if(!db)return msg('listingMessage','اتصال Supabase را تنظیم کن.');if(!user)return msg('listingMessage','برای ثبت آگهی ابتدا وارد حساب شو.');
+ let title=$('title').value.trim(),price=Number($('price').value),description=$('description').value.trim(),rate=Number($('commission').value),consent=$('contactConsent').checked,ct=$('contactType').value,cv=$('contactValue').value.trim();
+ if(title.length<3||!Number.isSafeInteger(price)||price<1||description.length<5)return msg('listingMessage','عنوان، قیمت معتبر و توضیحات کامل وارد کن.');
+ if(rate<1||rate>50)return msg('listingMessage','درصد باید بین ۱ تا ۵۰ باشد.');if(consent&&(!ct||!cv))return msg('listingMessage','برای نمایش راه ارتباطی، نوع و شناسه تماس را وارد کن.');
+ let payload={title,game:$('gameSelect').value,price,description,commission_rate:rate,status:'pending',seller_id:user.id,contact_type:ct||null,contact_value:cv||null,contact_public:consent};
+ let {error}=await db.from('listings').insert(payload);msg('listingMessage',error?'ثبت ناموفق بود: '+error.message:'آگهی ثبت شد و پس از تأیید مدیر نمایش داده می‌شود.');
+ if(!error){['title','price','description','contactValue'].forEach(k=>$(k).value='');$('contactConsent').checked=false}
+}
+async function adminRefresh(){
+ if(!db||!user)return msg('adminMessage','ابتدا با حساب مدیر وارد شو.');
+ let {data:a,error:ae}=await db.from('admin_users').select('user_id').eq('user_id',user.id).maybeSingle();
+ if(ae||!a)return msg('adminMessage','این حساب در فهرست مدیران مجاز نیست.');
+ msg('adminMessage','دسترسی مدیر تأیید شد.');let {data,error}=await db.from('listings').select('*').eq('status','pending').order('created_at',{ascending:true});
+ if(error)return msg('adminMessage','دریافت آگهی‌ها ناموفق بود: '+error.message);
+ $('adminListings').innerHTML=(data||[]).map(x=>`<div class="product" style="margin-top:10px"><h3>${safe(x.title)}</h3><p>${safe(x.game)} · ${fa(x.price)} تومان · ${fa(x.commission_rate)}٪</p><p>${safe(x.description)}</p><div class="actions"><button onclick="moderate('${safe(x.id)}','approved')">تأیید</button><button class="danger" onclick="moderate('${safe(x.id)}','rejected')">رد</button></div></div>`).join('')||'<p class="empty">آگهی در انتظار بررسی نیست.</p>';
+}
+async function moderate(id,status){let {error}=await db.from('listings').update({status}).eq('id',id);if(error)alert('عملیات ناموفق بود: '+error.message);else{await adminRefresh();await loadListings()}}
+$('signupBtn').onclick=signup;$('loginBtn').onclick=login;$('logoutBtn').onclick=logout;$('submitListing').onclick=submitListing;$('refreshAdmin').onclick=adminRefresh;init();
+</script></body></html>
