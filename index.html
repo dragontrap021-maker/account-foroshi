@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>اکانت فروشی | بازار اکانت بازی</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#100d18;color:white;font-family:tahoma,Arial}
+header{background:#1d142a;padding:22px;text-align:center;border-bottom:2px solid #a34cff}
+h1{color:#c18aff;margin:0}
+nav{padding:15px;text-align:center}
+nav a{color:white;margin:10px;text-decoration:none}
+main{max-width:900px;margin:auto;padding:15px}
+.hero{background:linear-gradient(120deg,#54218b,#191323);padding:30px;border-radius:18px;text-align:center}
+button{background:#963eff;color:white;border:0;border-radius:9px;padding:12px 20px;font-weight:bold;cursor:pointer}
+h2{color:#c18aff}
+.games{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.game,.product,.form{background:#21182e;padding:17px;border:1px solid #49345f;border-radius:14px}
+.game{text-align:center}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.price{color:#65e9a4;font-weight:bold}
+input,textarea,select{width:100%;padding:12px;margin:7px 0;background:#120e19;border:1px solid #59416e;border-radius:8px;color:white}
+footer{text-align:center;padding:25px;color:#aaa}
+@media(max-width:500px){.games{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+<h1>🎮 اکانت فروشی</h1>
+<p>بازار خرید و فروش اکانت بازی</p>
+</header>
+<nav>
+<a href="#games">بازی‌ها</a>
+<a href="#products">آگهی‌ها</a>
+<a href="#sell">ثبت آگهی</a>
+</nav>
+<main>
+<section class="hero">
+<h2>اکانت مورد علاقه‌ات رو پیدا کن!</h2>
+<p>خرید و فروش اکانت فری فایر، پابجی و کالاف</p>
+<a href="#products"><button>مشاهده آگهی‌ها</button></a>
+</section>
+
+<section id="games">
+<h2>دسته‌بندی بازی‌ها</h2>
+<div class="games">
+<div class="game">🔥 فری فایر</div>
+<div class="game">🎯 پابجی موبایل</div>
+<div class="game">🎮 کالاف دیوتی</div>
+</div>
+</section>
+
+<section id="products">
+<h2>آگهی‌های فروش</h2>
+<div class="products" id="listings">
+<div class="product">
+<h3>اکانت فری فایر</h3>
+<p>نمونه آگهی فروش</p>
+<p class="price">۵۰۰,۰۰۰ تومان</p>
+</div>
+<div class="product">
+<h3>اکانت پابجی</h3>
+<p>نمونه آگهی فروش</p>
+<p class="price">۱,۰۰۰,۰۰۰ تومان</p>
+</div>
+<div class="product">
+<h3>اکانت کالاف</h3>
+<p>نمونه آگهی فروش</p>
+<p class="price">۷۰۰,۰۰۰ تومان</p>
+</div>
+</div>
+</section>
+
+<section id="sell">
+<h2>ثبت آگهی فروش</h2>
+<div class="form">
+<input id="name" placeholder="نام اکانت">
+<select id="game">
+<option>فری فایر</option>
+<option>پابجی موبایل</option>
+<option>کالاف دیوتی</option>
+</select>
+<input id="price" type="number" placeholder="قیمت به تومان">
+<textarea id="description" placeholder="توضیحات اکانت"></textarea>
+<button onclick="addListing()">ثبت آگهی آزمایشی</button>
+<p id="message"></p>
+</div>
+</section>
+
+<section class="form">
+<h2>قوانین فروشگاه</h2>
+<p>اولین فروش هر فروشنده: رایگان</p>
+<p>پورسانت فروش‌های بعدی: ۲ درصد</p>
+<p>پرداخت و هماهنگی معامله: مستقیم با فروشنده</p>
+</section>
+</main>
+<footer>© اکانت فروشی | خرید و فروش اکانت بازی</footer>
+<script>
+function addListing(){
+let name=document.getElementById('name').value;
+let price=Number(document.getElementById('price').value);
+let game=document.getElementById('game').value;
+let desc=document.getElementById('description').value;
+if(!name||price<=0){
+document.getElementById('message').textContent='نام و قیمت را وارد کن';
+return;
+}
+let card=document.createElement('div');
+card.className='product';
+let h=document.createElement('h3');
+h.textContent=name;
+let p=document.createElement('p');
+p.textContent=game+' - '+desc;
+let cost=document.createElement('p');
+cost.className='price';
+cost.textContent=price.toLocaleString('fa-IR')+' تومان';
+card.append(h,p,cost);
+document.getElementById('listings').prepend(card);
+document.getElementById('message').textContent='آگهی در پیش‌نمایش اضافه شد';
+}
+</script>
+</body>
+</html>
